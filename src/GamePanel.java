@@ -10,9 +10,9 @@ public class GamePanel extends JPanel implements ActionListener {
     private final int DOT_SIZE = 48;
     private final int ALL_DOTS = 420;
     private int dots;
-    private int score, high_score;
-    private int[] y = new int[ALL_DOTS];
-    private int[] x = new int[ALL_DOTS];
+    private int score;
+    private final int[] y = new int[ALL_DOTS];
+    private final int[] x = new int[ALL_DOTS];
     private int appleX, appleY;
     private Image dot, apple;
     private boolean inGame = true;
@@ -106,7 +106,7 @@ public class GamePanel extends JPanel implements ActionListener {
             g.setFont(new Font("",Font.BOLD+Font.ITALIC,50));
             g.setColor(Color.YELLOW);
             g.drawString("GAME  OVER",this.getWidth()/3,this.getHeight()/2);
-            g.drawString("Your score : " + String.valueOf(score),this.getWidth()/3,this.getHeight()/2+100);
+            g.drawString("Your score : " + score,this.getWidth()/3,this.getHeight()/2+100);
         }
     }
 
@@ -127,25 +127,21 @@ public class GamePanel extends JPanel implements ActionListener {
             int key = e.getKeyCode();
             if (key == KeyEvent.VK_DOWN && !up){
                 down = true;
-                up = false;
                 left = false;
                 right = false;
             }
             if (key == KeyEvent.VK_UP && !down){
                 up = true;
-                down = false;
                 left = false;
                 right = false;
             }
             if (key == KeyEvent.VK_RIGHT && !left){
                 right = true;
-                left = false;
                 down = false;
                 up = false;
             }
             if (key == KeyEvent.VK_LEFT && !right){
                 left = true;
-                right = false;
                 down = false;
                 up = false;
             }
